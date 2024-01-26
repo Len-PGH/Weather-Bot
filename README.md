@@ -3,7 +3,7 @@ Signalwire Weather Bot
 
 
 
-The JSON snippet you've provided appears to describe the configuration for an AI-driven system, likely a chatbot or an interactive voice response (IVR) system, with a focus on weather information retrieval and message handling. The JSON is structured to define various sections and functions that this system can perform. Let's break down the key components:
+Let's break down the key components:
 
 ### Main Sections
 
