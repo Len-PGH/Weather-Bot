@@ -5,6 +5,8 @@ Signalwire Weather Bot
 
 Let's break down the key components:
 
+----------------------
+
 ### Main Sections
 
 1. **Answer Section (Empty)**:
@@ -15,6 +17,9 @@ Let's break down the key components:
 
 3. **AI Configuration**:
    - This is a complex section with various nested configurations, including parameters, prompts, language settings, and specific functions (SWAIG).
+
+
+----------------------
 
 ### Detailed AI Configuration
 
@@ -34,6 +39,9 @@ Let's break down the key components:
 
 - **Languages**:
   - Specifies language settings for voice interactions, including voice names and filler phrases.
+
+
+----------------------
 
 ### SWAIG (Signalwire AI Gateway)
 
