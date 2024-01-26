@@ -8,10 +8,10 @@ Let's break down the key components:
 ### Main Sections
 
 1. **Answer Section (Empty)**:
-   - This section is currently answers the call.
+   - This section answers the call.
 
 2. **Record Call**:
-   - This part indicates that calls are recorded in WAV format and possibly in stereo (`"stereo": "true"`).
+   - Calls are recorded in WAV format and possibly in stereo (`"stereo": "true"`).
 
 3. **AI Configuration**:
    - This is a complex section with various nested configurations, including parameters, prompts, language settings, and specific functions (SWAIG).
@@ -30,7 +30,7 @@ Let's break down the key components:
   - This part suggests text replacement settings for speech synthesis, like replacing "mph" with "miles per hour".
 
 - **Hints**:
-  - These are likely keywords or topics to guide the AI, in this case, related to weather.
+  - These are keywords or topics to guide the AI, in this case, related to weather.
 
 - **Languages**:
   - Specifies language settings for voice interactions, including voice names and filler phrases.
