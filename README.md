@@ -61,8 +61,6 @@ The JSON snippet you've provided appears to describe the configuration for an AI
 - **AI Prompt for Weather Expert**:
   - This prompt configures a sequence of steps for getting and delivering a weather forecast, suggesting the AI's role as a weather expert.
 
-- **Agent Meta Data**:
-  - Contains metadata like agent ID, which might be used for tracking or identification purposes in the system.
 
 ### Overall Structure
 
