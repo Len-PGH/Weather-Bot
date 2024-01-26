@@ -9,6 +9,9 @@ Let's break down the key components:
 
 ### Main Sections
 
+
+----------------------
+
 1. **Answer Section (Empty)**:
    - This section answers the call.
 
@@ -22,6 +25,9 @@ Let's break down the key components:
 ----------------------
 
 ### Detailed AI Configuration
+
+
+----------------------
 
 - **Params**:
   - Configures the AI with verbose logging (`"verbose_logs": "true"`).
@@ -44,6 +50,9 @@ Let's break down the key components:
 ----------------------
 
 ### SWAIG (Signalwire AI Gateway)
+
+
+----------------------
 
 - **Defaults**:
   - Sets default values for webhook interactions, including authentication details.
