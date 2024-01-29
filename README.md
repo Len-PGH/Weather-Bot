@@ -78,6 +78,10 @@ Let's break down the key components:
 - **AI Prompt for Weather Expert**:
   - This prompt configures a sequence of steps for getting and delivering a weather forecast, suggesting the AI's role as a weather expert.
 
+-----------------------------
 
+### SignalWire
+
+#### SignalWire’s AI Agent for Voice allows you to build and deploy your own digital employee. Powered by advanced natural language processing (NLP) capabilities, your digital employee will understand caller intent, retain context, and generally behave in a way that feels “human-like”.  In fact, you may find that it behaves exactly like your best employee, elevating the customer experience through efficient, intelligent, and personalized interactions.
 
 
