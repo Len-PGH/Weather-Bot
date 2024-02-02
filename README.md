@@ -3,7 +3,7 @@
 
 ## Exploring the SignalWire Weather Bot AI Configuration JSON
 
-In this exploration, we examine a detailed JSON configuration structured to enable AI-powered interactions, focusing on communication and information retrieval tasks. This configuration is rich in functionalities, including voice recording, customizable AI behavior, and specialized tasks such as sending messages and fetching weather information.
+In this exploration, we examine a detailed JSON configuration structured to enable AI-powered interactions, focusing on communication and information retrieval tasks. This configuration is rich in functionalities, including voice recording, customizable AI behavior, and specialized tasks such as sending messages and fetching weather information. For the full [SWML example click here](https://github.com/Len-PGH/Weather-Bot/blob/main/swml.md).
 
 ## Sections Overview
 
