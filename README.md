@@ -1,82 +1,389 @@
 # Weather-Bot
-Signalwire Weather Bot
+
+
+## Exploring the SignalWire Weather Bot AI Configuration JSON
+
+In this exploration, we examine a detailed JSON configuration structured to enable AI-powered interactions, focusing on communication and information retrieval tasks. This configuration is rich in functionalities, including voice recording, customizable AI behavior, and specialized tasks such as sending messages and fetching weather information.
+
+## Sections Overview
+
+The configuration is structured under a sections key, encapsulating different operational blocks within the main array. Each block serves a unique purpose, ranging from voice recording settings to complex AI operations.
+
+## Answer Block
+
+```json
+
+{
+  "answer": {}
+}
+
+
+```
+
+* Description: This block Answers the call.
+
+---------------------
+
+## Record Call Block
+
+```json
+
+{
+  "record_call": {
+    "format": "wav",
+    "stereo": "true"
+  }
+}
+
+
+```
+
+* Description: This section instructs the system to record calls in WAV format with stereo audio quality. It's crucial for applications that require audio analysis, quality assurance, or legal compliance.
+
+----------------------------
+
+## Diving deeper into the AI Configuration Block, we'll explore each component in detail, focusing on how each part contributes to the overall functionality of the AI system.
+
+## AI Configuration Block Detailed Breakdown
+
+## Post-Prompt Configuration
+
+```json
+"post_prompt_url": "https://webhook.site/a6196db2-75c2-4c36-98bf-e31245"
+
+```
+```json
+"post_prompt_auth_password": "this-is-optional-password"
+```
+```json
+"post_prompt_auth_user": "this-is-an-optional-user"
+```
+
+* Description: These configurations define the endpoint (`post_prompt_url`) and the authentication details (`post_prompt_auth_password`, `post_prompt_auth_user`) for the AI to communicate with after executing the prompt's instructions, ensuring secured data transmission.
+
+## Parameters (params)
+
+```json
+"params": {
+  "verbose_logs": "true",
+  "debug_webhook_url": "https://this-is-an-optional-user:this-is-optional-password@webhook.site/a6196db2-75c2-4c36-98bf-e31245"
+}
+```
+
+* Description: Enables detailed logging (`verbose_logs`) for debugging and specifies a webhook URL (`debug_webhook_url`) for sending debug information. This setup is crucial for monitoring and troubleshooting the AI's operations.
+
+## Prompt (post_prompt)
+
+```json
+"post_prompt": {
+  "top_p": 0.6,
+  "temperature": 0.6,
+  "text": "Summarize the conversation"
+}
+```
+* Description: Dictates the AI's task to summarize the conversation, adjusting creativity and randomness with `top_p` and `temperature`. This guides the AI in generating concise summaries of interactions.
+
+## Pronunciation Adjustments (pronounce)
+
+```json
+"pronounce": [
+  {
+    "ignore_case": 0,
+    "with": "miles per hour",
+    "replace": "mph"
+  }
+]
+```
+
+* Description: Customizes how the AI interprets and vocalizes "mph," ensuring clarity in pronunciation by expanding abbreviations where necessary.
+
+## Hints
+
+```json
+"hints": [
+  "weather",
+  "forecast"
+]
+```
+
+* Description: Provides contextual hints to the AI, focusing its responses and capabilities around weather-related queries and information.
+
+## Languages
+
+```json
+"languages": [
+  {
+    "code": "en-US",
+    "voice": "Rachel",
+    "name": "English",
+    "fillers": [
+      "one moment",
+      "one moment please"
+    ],
+    "engine": "elevenlabs"
+  }
+]
+```
+
+## Languages
+
+```json
+"languages": [
+  {
+    "code": "en-US",
+    "voice": "Rachel",
+    "name": "English",
+    "fillers": [
+      "one moment",
+      "one moment please"
+    ],
+    "engine": "elevenlabs"
+  }
+]
+```
+
+* Description: Configures the AI's language settings, including dialect, voice, and phrases for natural interactions, utilizing the elevenlabs engine for speech synthesis. When a function executes the AI Agent will say one of the fillers.
+
+## SWAIG Defaults
+
+```json
+"SWAIG": {
+  "defaults": {
+    "web_hook_url": "https://webhook.site/a6196db2-75c2-4c36-98bf-e31245",
+    "web_hook_auth_password": "this-is-optional-password",
+    "web_hook_auth_user": "this-is-an-optional-user"
+  }
+}
+```
+
+* Description: Sets default webhook configurations for the AI, streamlining external communications for all functions defined within the SWAIG framework.
 
 
 
-Let's break down the key components:
+## Function: Send Text Message (`send_message`)
 
-----------------------
+```json
+{
+  "purpose": "use to send text messages to a user",
+  "argument": {
+    "type": "object",
+    "properties": {
+      "to": {
+        "type": "string",
+        "description": "The users number in e.164 format"
+      },
+      "message": {
+        "description": "the message to send to the user",
+        "type": "string"
+      }
+    }
+  },
+  "data_map": {
+    "expressions": [
+      {
+        "string": "${args.message}",
+        "output": {
+          "response": "Message sent.",
+          "action": [
+            {
+              "SWML": {
+                "version": "1.0.0",
+                "sections": {
+                  "main": [
+                    {
+                      "send_sms": {
+                        "to_number": "${args.to}",
+                        "region": "us",
+                        "body": "${args.message}, Reply STOP to stop.",
+                        "from_number": "+15552221234"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "pattern": ".*"
+      }
+    ]
+  },
+  "function": "send_message"
+}
+```
 
-### Main Sections
+* Description: This function allows the AI to send SMS messages to users, leveraging user inputs for the recipient's phone number and message content. It showcases the use of SignalWire Markup Language (SWML) to structure the message sending action.
+
+## Function: Send Multimedia Message (`send_mms`)
+
+```json
+{
+  "purpose": "use to send text messages to a user",
+  "argument": {
+    "properties": {
+      "to": {
+        "description": "The users number in e.164 format",
+        "type": "string"
+      },
+      "message": {
+        "description": "the message to send to the user",
+        "type": "string"
+      },
+      "media": {
+        "description": "the media URL to send to the user",
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "function": "send_mms",
+  "data_map": {
+    "expressions": [
+      {
+        "pattern": ".*",
+        "output": {
+          "action": [
+            {
+              "SWML": {
+                "version": "1.0.0",
+                "sections": {
+                  "main": [
+                    {
+                      "send_sms": {
+                        "to_number": "${args.to}",
+                        "media": ["${args.media}"],
+                        "body": "${args.message}, Reply STOP to stop.",
+                        "region": "us",
+                        "from_number": "+19184052049"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "response": "Message sent."
+        },
+        "string": "${args.message}"
+      }
+    ]
+  }
+}
+```
+
+* Description: Expands upon the SMS functionality to include the capability of sending multimedia content along with text messages. It demonstrates how to include media URLs in the message payload for a more engaging user experience.
 
 
-----------------------
+## Function: Get Latitude and Longitude (`get_lat_lon`)
 
-1. **Answer Section (Empty)**:
-   - This section answers the call.
+```json
+{
+  "function": "get_lat_lon",
+  "data_map": {
+    "webhooks": [
+      {
+        "method": "GET",
+        "output": {
+          "response": "The latitude is ${array[0].lat}, longitude is ${array[0].lon} for ${input.args.city}, ${input.args.state}",
+          "action": [
+            {
+              "back_to_back_functions": "true"
+            }
+          ]
+        },
+        "url": "https://nominatim.openstreetmap.org/search?format=json&q=${enc:args.city}%2C${enc:args.state}"
+      }
+    ]
+  },
+  "purpose": "latitude and longitude for any city or state",
+  "argument": {
+    "properties": {
+      "state": {
+        "type": "string",
+        "description": "Two letter US state code"
+      },
+      "city": {
+        "type": "string",
+        "description": "City name"
+      }
+    },
+    "type": "object"
+  }
+}
+```
 
-2. **Record Call**:
-   - Calls are recorded in WAV format and possibly in stereo (`"stereo": "true"`).
+* Description: Fetches geographic coordinates (`latitude and longitude`) for a given city or state. This function showcases the integration with external APIs (OpenStreetMap) to retrieve location data, essential for weather-related inquiries.
 
-3. **AI Configuration**:
-   - This is a complex section with various nested configurations, including parameters, prompts, language settings, and specific functions (SWAIG).
+## Function: Get Weather Point (`get_weather_point`)
 
+```json
+{
+  "function": "get_weather_point",
+  "data_map": {
+    "webhooks": [
+      {
+        "url": "https://api.weather.gov/points/${enc:args.lat},${enc:args.lon}",
+        "output": {
+          "action": [
+            {
+              "back_to_back_functions": "true"
+            }
+          ],
+          "response": "Now use get_weather_detailed_forecast function to get the forecast using this URL ${properties.forecast} as the argument."
+        },
+        "method": "GET"
+      }
+    ]
+  },
+  "purpose": "latitude and longitude for any city",
+  "argument": {
+    "properties": {
+      "lon": {
+        "type": "string",
+        "description": "Longitude to four decimal places."
+      },
+      "lat": {
+        "description": "Latitude to four decimal places.",
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+}
+```
 
-----------------------
+* Description: Utilizes the geographic coordinates to fetch a specific weather forecast point from the National Weather Service. This function serves as a bridge to obtaining detailed weather forecasts by providing a URL for further querying.
 
-### Detailed AI Configuration
+## Function: Get Weather Detailed Forecast (`get_weather_detailed_forecast`)
 
+```json
+{
+  "function": "get_weather_detailed_forecast",
+  "data_map": {
+    "webhooks": [
+      {
+        "url": "${args.url}",
+        "method": "GET",
+        "output": {
+          "response": "${properties.periods[0].detailedForecast}"
+        }
+      }
+    ]
+  },
+  "purpose": "get detailed forecast for a location using forecast URL",
+  "argument": {
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "complete forecast URL"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+* Description: This function directly queries a detailed forecast for a specific location using a URL obtained from the previous step (`get_weather_point`). It exemplifies how to navigate from obtaining latitude and longitude to fetching and presenting a detailed weather forecast to the user.
 
-----------------------
-
-- **Params**:
-  - Configures the AI with verbose logging (`"verbose_logs": "true"`).
-  - Specifies a debug webhook URL.
-
-- **Post Prompt Configuration**:
-  - After the main interaction, it seems to follow up with a summary task (`"text": "Summarize the conversation"`).
-  - The parameters `top_p` and `temperature` indicate how the AI generates responses, balancing creativity and relevance.
-
-- **Pronounce Settings**:
-  - This part suggests text replacement settings for speech synthesis, like replacing "mph" with "miles per hour".
-
-- **Hints**:
-  - These are keywords or topics to guide the AI, in this case, related to weather.
-
-- **Languages**:
-  - Specifies language settings for voice interactions, including voice names and filler phrases.
-
-
-----------------------
-
-### SWAIG (Signalwire AI Gateway)
-
-
-----------------------
-
-- **Defaults**:
-  - Sets default values for webhook interactions, including authentication details.
-
-- **Functions**: 
-  - Various functions the AI can perform, each with a specific purpose, arguments, and data mapping.
-
-   1. **Send Message Function**:
-      - Sends text messages to a user with specified content.
-
-   2. **Send MMS Function**:
-      - Similar to the send message function but includes media content.
-
-   3. **Get Latitude and Longitude Function**:
-      - Retrieves geographical coordinates for a given city and state.
-
-   4. **Get Weather Point Function**:
-      - Fetches a detailed weather URL based on latitude and longitude.
-
-   5. **Get Weather Detailed Forecast Function**:
-      - Uses the URL from the weather point function to get a detailed forecast.
-
-- **AI Prompt for Weather Expert**:
-  - This prompt configures a sequence of steps for getting and delivering a weather forecast, suggesting the AI's role as a weather expert.
 
 -----------------------------
 
