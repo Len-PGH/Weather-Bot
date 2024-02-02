@@ -1,5 +1,7 @@
 # Weather-Bot
 
+![image](https://github.com/Len-PGH/Weather-Bot/assets/13131198/4010e5c6-bea1-4455-98b7-b810a88bc00b)
+
 
 ## Exploring the SignalWire Weather Bot AI Configuration JSON
 
