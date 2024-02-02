@@ -42,7 +42,7 @@ The configuration is structured under a sections key, encapsulating different op
 
 ----------------------------
 
-## Diving deeper into the AI Configuration Block, we'll explore each component in detail, focusing on how each part contributes to the overall functionality of the AI system.
+Diving deeper into the AI Configuration Block, we'll explore each component in detail, focusing on how each part contributes to the overall functionality of the AI system.
 
 ## AI Configuration Block Detailed Breakdown
 
@@ -61,6 +61,9 @@ The configuration is structured under a sections key, encapsulating different op
 
 * Description: These configurations define the endpoint (`post_prompt_url`) and the authentication details (`post_prompt_auth_password`, `post_prompt_auth_user`) for the AI to communicate with after executing the prompt's instructions, ensuring secured data transmission.
 
+
+----------------------------
+
 ## Parameters (params)
 
 ```json
@@ -72,6 +75,9 @@ The configuration is structured under a sections key, encapsulating different op
 
 * Description: Enables detailed logging (`verbose_logs`) for debugging and specifies a webhook URL (`debug_webhook_url`) for sending debug information. This setup is crucial for monitoring and troubleshooting the AI's operations.
 
+
+----------------------------
+
 ## Prompt (post_prompt)
 
 ```json
@@ -82,6 +88,9 @@ The configuration is structured under a sections key, encapsulating different op
 }
 ```
 * Description: Dictates the AI's task to summarize the conversation, adjusting creativity and randomness with `top_p` and `temperature`. This guides the AI in generating concise summaries of interactions.
+
+
+----------------------------
 
 ## Pronunciation Adjustments (pronounce)
 
@@ -97,6 +106,9 @@ The configuration is structured under a sections key, encapsulating different op
 
 * Description: Customizes how the AI interprets and vocalizes "mph," ensuring clarity in pronunciation by expanding abbreviations where necessary.
 
+
+----------------------------
+
 ## Hints
 
 ```json
@@ -108,22 +120,8 @@ The configuration is structured under a sections key, encapsulating different op
 
 * Description: Provides contextual hints to the AI, focusing its responses and capabilities around weather-related queries and information.
 
-## Languages
 
-```json
-"languages": [
-  {
-    "code": "en-US",
-    "voice": "Rachel",
-    "name": "English",
-    "fillers": [
-      "one moment",
-      "one moment please"
-    ],
-    "engine": "elevenlabs"
-  }
-]
-```
+----------------------------
 
 ## Languages
 
@@ -144,6 +142,9 @@ The configuration is structured under a sections key, encapsulating different op
 
 * Description: Configures the AI's language settings, including dialect, voice, and phrases for natural interactions, utilizing the elevenlabs engine for speech synthesis. When a function executes the AI Agent will say one of the fillers.
 
+
+----------------------------
+
 ## SWAIG Defaults
 
 ```json
@@ -159,6 +160,7 @@ The configuration is structured under a sections key, encapsulating different op
 * Description: Sets default webhook configurations for the AI, streamlining external communications for all functions defined within the SWAIG framework.
 
 
+----------------------------
 
 ## Function: Send Text Message (`send_message`)
 
@@ -213,6 +215,9 @@ The configuration is structured under a sections key, encapsulating different op
 ```
 
 * Description: This function allows the AI to send SMS messages to users, leveraging user inputs for the recipient's phone number and message content. It showcases the use of SignalWire Markup Language (SWML) to structure the message sending action.
+
+
+----------------------------
 
 ## Function: Send Multimedia Message (`send_mms`)
 
@@ -274,6 +279,8 @@ The configuration is structured under a sections key, encapsulating different op
 * Description: Expands upon the SMS functionality to include the capability of sending multimedia content along with text messages. It demonstrates how to include media URLs in the message payload for a more engaging user experience.
 
 
+----------------------------
+
 ## Function: Get Latitude and Longitude (`get_lat_lon`)
 
 ```json
@@ -313,6 +320,9 @@ The configuration is structured under a sections key, encapsulating different op
 ```
 
 * Description: Fetches geographic coordinates (`latitude and longitude`) for a given city or state. This function showcases the integration with external APIs (OpenStreetMap) to retrieve location data, essential for weather-related inquiries.
+
+
+----------------------------
 
 ## Function: Get Weather Point (`get_weather_point`)
 
@@ -354,6 +364,9 @@ The configuration is structured under a sections key, encapsulating different op
 
 * Description: Utilizes the geographic coordinates to fetch a specific weather forecast point from the National Weather Service. This function serves as a bridge to obtaining detailed weather forecasts by providing a URL for further querying.
 
+
+----------------------------
+
 ## Function: Get Weather Detailed Forecast (`get_weather_detailed_forecast`)
 
 ```json
@@ -384,6 +397,8 @@ The configuration is structured under a sections key, encapsulating different op
 ```
 * Description: This function directly queries a detailed forecast for a specific location using a URL obtained from the previous step (`get_weather_point`). It exemplifies how to navigate from obtaining latitude and longitude to fetching and presenting a detailed weather forecast to the user.
 
+
+----------------------------
 
 -----------------------------
 
