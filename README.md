@@ -197,7 +197,7 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
                         "to_number": "${args.to}",
                         "region": "us",
                         "body": "${args.message}, Reply STOP to stop.",
-                        "from_number": "+15552221234"
+                        "from_number": "+19184052049"
                       }
                     }
                   ]
