@@ -164,7 +164,9 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Function: Send Text Message (`send_message`)
+## Function: Send Text Message
+
+* **Name:**`send_message`
 
 ```json
 {
@@ -221,7 +223,9 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Function: Send Multimedia Message (`send_mms`)
+## Function: Send Multimedia Message
+
+* **Name:**`send_mms`
 
 ```json
 {
@@ -283,7 +287,9 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Function: Get Latitude and Longitude (`get_lat_lon`)
+## Function: Get Latitude and Longitude
+
+* **Name:**`get_lat_lon`
 
 ```json
 {
@@ -326,7 +332,9 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Function: Get Weather Point (`get_weather_point`)
+## Function: Get Weather Point
+
+* **Name:**`get_weather_point`
 
 ```json
 {
@@ -369,7 +377,9 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Function: Get Weather Detailed Forecast (`get_weather_detailed_forecast`)
+## Function: Get Weather Detailed Forecast
+
+* **Name:**`get_weather_detailed_forecast`
 
 ```json
 {
