@@ -66,7 +66,7 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Parameters (params)
+## (params) Parameters
 
 ```json
 "params": {
@@ -80,7 +80,7 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Prompt (post_prompt)
+## (post_prompt) Prompt 
 
 ```json
 "post_prompt": {
@@ -94,7 +94,7 @@ Diving deeper into the AI Configuration Block, we'll explore each component in d
 
 ----------------------------
 
-## Pronunciation Adjustments (pronounce)
+## (pronounce) Pronunciation Adjustments
 
 ```json
 "pronounce": [
